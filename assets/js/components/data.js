@@ -15,7 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import DashboardAuthAlert from 'GoogleComponents/notifications/dashboard-auth-alert';
 import DashboardPermissionAlert from 'GoogleComponents/notifications/dashboard-permission-alert';
 
 import {
@@ -272,19 +271,12 @@ const data = {
 						result.error_data[403].reason
 					)  {
 
-						if ( 'insufficientPermissions' === result.error_data[403].reason ) {
-
-							// Insufficient scopes - add a notice.
-							addFilter( 'googlesitekit.DashboardNotifications',
-								'googlesitekit.AuthNotification',
-								fillFilterWithComponent( DashboardAuthAlert ), 1 );
-						} else if ( 'forbidden' === result.error_data[403].reason ) {
+						if ( 'forbidden' === result.error_data[403].reason ) {
 
 							// Insufficient access permissions - add a notice.
 							addFilter( 'googlesitekit.DashboardNotifications',
 								'googlesitekit.AuthNotification',
 								fillFilterWithComponent( DashboardPermissionAlert ), 1 );
-
 						}
 
 						// Increase the notice count.

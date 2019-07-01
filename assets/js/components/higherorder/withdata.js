@@ -18,6 +18,9 @@
 
 import getNoDataComponent from 'GoogleComponents/notifications/nodata';
 import getDataErrorComponent from 'GoogleComponents/notifications/data-error';
+import { fillFilterWithComponent } from 'GoogleUtil/index';
+import DashboardAuthAlert
+	from 'GoogleComponents/notifications/dashboard-auth-alert';
 
 const {
 	addFilter,
@@ -101,6 +104,17 @@ const withData = (
 			// Catch RateLimitExceeded specifically.
 			if ( errors[0] && 'RateLimitExceeded' === errors[0].reason ) {
 				return __( 'Too many requests have been sent within a given time span. Please reload this page again in a few seconds', 'google-site-kit' );
+			}
+
+			// Catch insufficientPermissions specifically.
+			if ( errors[0] && 'insufficientPermissions' === errors[0].reason ) {
+
+				// Insufficient scopes - add a notice.
+				addFilter( 'googlesitekit.DashboardNotifications',
+					'googlesitekit.AuthNotification',
+					fillFilterWithComponent( DashboardAuthAlert ), 1 );
+
+				return __( 'User does not have permission to perform this operation.', 'google-site-kit' );
 			}
 		}
 
