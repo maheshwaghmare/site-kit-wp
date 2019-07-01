@@ -282,6 +282,15 @@ export const getAnalyticsErrorMessageFromData = ( data ) => {
 		return translateAnalyticsError( data.error.status, data.error.message );
 	}
 
+	if ( data && data.error_data ) {
+		const errors = Object.values( data.error_data );
+
+		// Catch insufficientPermissions specifically.
+		if ( errors[0] && 'insufficientPermissions' === errors[0].reason ) {
+			return __( 'Your account does not have permission to perform this operation.', 'google-site-kit' );
+		}
+	}
+
 	return false;
 };
 
