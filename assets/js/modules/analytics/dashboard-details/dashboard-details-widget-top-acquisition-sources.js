@@ -36,7 +36,7 @@ class AnalyticsDashboardDetailsWidgetTopAcquisitionSources extends Component {
 						className="googlesitekit-analytics-acquisition-sources"
 						header
 						footer
-						title={ __( 'Acquisition Sources', 'google-site-kit' ) }
+						title={ __( 'How People Found This Page', 'google-site-kit' ) }
 						headerCtaLink="https://analytics.google.com"
 						headerCtaLabel={ __( 'See full stats in Analytics', 'google-site-kit' ) }
 						footerCtaLabel={ __( 'Analytics', 'google-site-kit' ) }
