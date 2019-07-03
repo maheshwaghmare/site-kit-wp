@@ -25,6 +25,8 @@ import {
 import { getDataTableFromData, TableOverflowContainer } from 'GoogleComponents/data-table';
 import PreviewTable from 'GoogleComponents/preview-table';
 import MiniChart from 'GoogleComponents/mini-chart';
+import { getAnalyticsErrorMessageFromData, isDataZeroForTrafficSources } from '../util';
+
 
 const { __, sprintf } = wp.i18n;
 const { map } = lodash;
@@ -114,5 +116,8 @@ export default withData(
 	<PreviewTable
 		rows={ 4 }
 		rowHeight={ 50 }
-	/>
+	/>,
+	{},
+	isDataZeroForTrafficSources,
+	getAnalyticsErrorMessageFromData
 );
