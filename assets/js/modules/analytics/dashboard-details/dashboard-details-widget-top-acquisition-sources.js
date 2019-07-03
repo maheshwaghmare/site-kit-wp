@@ -19,6 +19,7 @@
 import AnalyticsDashboardWidgetTopAcquisitionSources from '../dashboard/dashboard-widget-top-acquisition-sources-table';
 import Layout from 'GoogleComponents/layout/layout';
 import DashboardAcquisitionPieChart from '../dashboard/dashboard-widget-acquisition-piechart';
+import DateRangeSelector from 'GoogleComponents/date-range-selector';
 
 const { Component, Fragment } = wp.element;
 const { __ } = wp.i18n;
@@ -28,6 +29,16 @@ class AnalyticsDashboardDetailsWidgetTopAcquisitionSources extends Component {
 	render() {
 		return (
 			<Fragment>
+				<div className="
+					mdc-layout-grid__cell
+					mdc-layout-grid__cell--span-4-phone
+					mdc-layout-grid__cell--span-12-tablet
+					mdc-layout-grid__cell--span-12-desktop
+					mdc-layout-grid__cell--align-right
+					mdc-layout-grid__cell--align-bottom
+				">
+					<DateRangeSelector/>
+				</div>
 				<div className="
 					mdc-layout-grid__cell
 					mdc-layout-grid__cell--span-12
