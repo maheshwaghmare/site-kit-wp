@@ -18,30 +18,43 @@
 
 import SearchConsoleDashboardWidgetKeywordTable from '../dashboard/dashboard-widget-keyword-table';
 import Layout from 'GoogleComponents/layout/layout';
+import DateRangeSelector from 'GoogleComponents/date-range-selector';
 
-const { Component } = wp.element;
+const { Component, Fragment } = wp.element;
 const { __, sprintf } = wp.i18n;
 
 class DashboardDetailsWidgetKeywordsTable extends Component {
 
 	render() {
 		return (
-			<div className="
-				mdc-layout-grid__cell
-				mdc-layout-grid__cell--span-12
-			">
-				<Layout
-					title={ __( 'Top Search Queries For This Page', 'google-site-kit' ) }
-					header
-					footer
-					footerCtaLabel={ __( 'Search Console', 'google-site-kit' ) }
-					footerCtaLink={
-						sprintf( 'https://search.google.com/u/1/search-console?resource_id=%s', googlesitekit.admin.siteURL )
-					}
-				>
-					<SearchConsoleDashboardWidgetKeywordTable/>
-				</Layout>
-			</div>
+			<Fragment>
+				<div className="
+					mdc-layout-grid__cell
+					mdc-layout-grid__cell--span-4-phone
+					mdc-layout-grid__cell--span-12-tablet
+					mdc-layout-grid__cell--span-12-desktop
+					mdc-layout-grid__cell--align-right
+					mdc-layout-grid__cell--align-bottom
+				">
+					<DateRangeSelector/>
+				</div>
+				<div className="
+					mdc-layout-grid__cell
+					mdc-layout-grid__cell--span-12
+				">
+					<Layout
+						title={ __( 'Top Search Queries For This Page', 'google-site-kit' ) }
+						header
+						footer
+						footerCtaLabel={ __( 'Search Console', 'google-site-kit' ) }
+						footerCtaLink={
+							sprintf( 'https://search.google.com/u/1/search-console?resource_id=%s', googlesitekit.admin.siteURL )
+						}
+					>
+						<SearchConsoleDashboardWidgetKeywordTable/>
+					</Layout>
+				</div>
+			</Fragment>
 		);
 	}
 }
