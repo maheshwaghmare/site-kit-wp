@@ -20,6 +20,7 @@ import withData from 'GoogleComponents/higherorder/withdata';
 import { getTimeInSeconds, numberFormat } from 'GoogleUtil';
 import { getDataTableFromData, TableOverflowContainer } from 'GoogleComponents/data-table';
 import PreviewTable from 'GoogleComponents/preview-table';
+import { isDataZeroSearchConsole } from './util';
 
 const { __, sprintf } = wp.i18n;
 const { map } = lodash;
@@ -94,5 +95,6 @@ export default withData(
 		}
 	],
 	<PreviewTable padding />,
-	{ createGrid: true }
+	{ createGrid: true },
+	isDataZeroSearchConsole
 );

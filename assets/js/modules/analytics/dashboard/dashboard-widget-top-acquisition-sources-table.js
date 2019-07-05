@@ -27,7 +27,6 @@ import PreviewTable from 'GoogleComponents/preview-table';
 import MiniChart from 'GoogleComponents/mini-chart';
 import { getAnalyticsErrorMessageFromData, isDataZeroForTrafficSources } from '../util';
 
-
 const { __, sprintf } = wp.i18n;
 const { map } = lodash;
 const { Component, Fragment } = wp.element;
