@@ -43,7 +43,7 @@ class DashboardDetailsWidgetKeywordsTable extends Component {
 					mdc-layout-grid__cell--span-12
 				">
 					<Layout
-						title={ __( 'Top Search Queries For This Page', 'google-site-kit' ) }
+						title={ __( 'Top search queries for this page', 'google-site-kit' ) }
 						header
 						footer
 						footerCtaLabel={ __( 'Search Console', 'google-site-kit' ) }
