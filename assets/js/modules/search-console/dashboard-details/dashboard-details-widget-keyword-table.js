@@ -26,6 +26,8 @@ const { __, sprintf } = wp.i18n;
 class DashboardDetailsWidgetKeywordsTable extends Component {
 
 	render() {
+		const title = googlesitekit.permaLink ?  __( 'Top search queries for this page', 'google-site-kit' ) : __( 'Top search queries for your site', 'google-site-kit' );
+
 		return (
 			<Fragment>
 				<div className="
@@ -43,7 +45,7 @@ class DashboardDetailsWidgetKeywordsTable extends Component {
 					mdc-layout-grid__cell--span-12
 				">
 					<Layout
-						title={ __( 'Top search queries for this page', 'google-site-kit' ) }
+						title={ title }
 						header
 						footer
 						footerCtaLabel={ __( 'Search Console', 'google-site-kit' ) }
